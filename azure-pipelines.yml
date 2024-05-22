@@ -20,4 +20,4 @@ steps:
     inputs:
       command: start
       container: polatefekaya/js-with-docker
-      arguments: -e CI=true npm run test
+      arguments: npm run test -- --coverage

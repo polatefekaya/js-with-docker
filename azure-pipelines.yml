@@ -4,20 +4,20 @@
 # https://aka.ms/yaml
 
 trigger:
-- main
+  - main
 
 pool:
   vmImage: ubuntu-latest
-  
-steps:
-- task: Docker@2
-  inputs:
-    command: build
-    Dockerfile: Dockerfile.dev
-    tags: polatefekaya/js-with-docker
 
-- task: Docker@2
-  inputs:
-    command: start
-    tags: polatefekaya/js-with-docker
-    arguments: -e CI=true npm run test
+steps:
+  - task: Docker@2
+    inputs:
+      command: build
+      Dockerfile: Dockerfile.dev
+      tags: polatefekaya/js-with-docker
+
+  - task: Docker@2
+    inputs:
+      command: start
+      container: polatefekaya/js-with-docker
+      arguments: -e CI=true npm run test

@@ -1,8 +1,3 @@
-# Starter pipeline
-# Start with a minimal pipeline that you can customize to build and deploy your code.
-# Add steps that build, run tests, deploy, and more:
-# https://aka.ms/yaml
-
 trigger:
   - main
 
@@ -10,17 +5,10 @@ pool:
   vmImage: ubuntu-latest
 
 steps:
-  - script: docker login -u polatefekaya --password-stdin
-    displayName: "Docker Login"
-
   - task: Docker@2
     inputs:
       command: build
       Dockerfile: Dockerfile.dev
       tags: polatefekaya/js-with-docker
 
-  - task: Docker@2
-    inputs:
-      command: run
-      tags: polatefekaya/js-with-docker
-      arguments: npm run test -- --coverage
+  - script: docker run -e CI=true polatefekaya/js-with-docker npm run test

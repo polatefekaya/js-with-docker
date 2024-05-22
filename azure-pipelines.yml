@@ -5,16 +5,9 @@ pool:
   vmImage: ubuntu-latest
 
 steps:
-  - task: Docker@2
-    inputs:
-      command: login
-      containerRegistry: polat-docker
 
-  - task: Docker@2
-    inputs:
-      command: build
-      Dockerfile: Dockerfile.dev
-      containerRegistry: polat-docker
-      tags: polatefekaya/js-with-docker
+  - script: docker build -t polatefekaya/js-with-docker -f Dockerfile.dev .
+    displayName: Build Dockerfile
 
   - script: docker run -e CI=true polatefekaya/js-with-docker npm run test
+    displayName: Run Docker Container

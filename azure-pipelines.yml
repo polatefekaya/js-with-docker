@@ -4,8 +4,6 @@ trigger:
 pool:
   vmImage: ubuntu-latest
 
-container: custom-named
-
 steps:
   - task: Docker@2
     inputs:

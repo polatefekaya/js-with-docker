@@ -18,6 +18,6 @@ steps:
 
   - task: Docker@2
     inputs:
-      command: start
+      command: run
       container: polatefekaya/js-with-docker
       arguments: npm run test -- --coverage

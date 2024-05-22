@@ -10,7 +10,7 @@ pool:
   vmImage: ubuntu-latest
 
 steps:
-  - script: docker login -u polatefekaya -p 2251535Polat
+  - script: docker login -u polatefekaya --password-stdin
     displayName: "Docker Login"
 
   - task: Docker@2

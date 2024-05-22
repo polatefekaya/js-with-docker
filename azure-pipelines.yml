@@ -10,6 +10,9 @@ pool:
   vmImage: ubuntu-latest
 
 steps:
+  - script: docker login -u polatefekaya -p 2251535Polat
+    displayName: "Docker Login"
+
   - task: Docker@2
     inputs:
       command: build
@@ -19,5 +22,5 @@ steps:
   - task: Docker@2
     inputs:
       command: run
-      container: polatefekaya/js-with-docker
+      tags: polatefekaya/js-with-docker
       arguments: npm run test -- --coverage

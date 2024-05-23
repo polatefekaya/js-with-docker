@@ -46,7 +46,7 @@ stages:
     pool:
       vmImage: $(vmImageName)
     steps:
-      - script: docker run -e CI=true $(tag) npm run test  
+      - script: docker run -e CI=true $(containerRegistry)/image-$(Build.Repository.Name):$(Build.BuildId) npm run test  
 - stage: Deploy
   displayName: Deployment stage
   jobs:

@@ -10,7 +10,7 @@ function App() {
           This is from my Docker journey.
         </p>
 <p>
-  zamazinPolat
+  we are in azure lets go
 </p>
         <p>
           -Polat Efe Kaya
